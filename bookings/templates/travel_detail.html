@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ travel.get_type_display }} • {{ travel.source }} → {{ travel.destination }}</h2>
+<p><strong>Travel ID:</strong> {{ travel.travel_id }}</p>
+<p><strong>Departure:</strong> {{ travel.departure_datetime|date:"M d, Y H:i" }}</p>
+<p><strong>Price:</strong> ₹{{ travel.price }}</p>
+<p><strong>Available Seats:</strong> {{ travel.available_seats }}</p>
+<a class="btn btn-primary" href="{% url 'book_travel' travel.pk %}">Book now</a>
+{% endblock %}
